@@ -6,19 +6,46 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
+    "lingui": "lingui extract --clean --overwrite && lingui compile"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,css}": "prettier --write"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "make-plural": "^7.1.0",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.16.7",
+    "@foxlottery/core-sdk": "^1.0.0-canary.94",
+    "@lingui/cli": "^3.12.1",
+    "@lingui/core": "^3.12.1",
+    "@lingui/loader": "^3.12.1",
+    "@lingui/macro": "^3.12.1",
+    "@lingui/react": "^3.12.1",
+    "@lingui/remote-loader": "^3.11.0",
     "@types/node": "17.0.24",
     "@types/react": "18.0.5",
     "@types/react-dom": "18.0.1",
+    "@welldone-software/why-did-you-render": "^6.2.3",
+    "babel-jest": "^27.2.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-macros": "^3.1.0",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unused-imports": "^1.1.5",
+    "prettier": "^2.6.2",
+    "tailwindcss": "^3.0.23",
     "typescript": "4.6.3"
   },
   "entrypoints": [
