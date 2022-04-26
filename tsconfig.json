@@ -3,8 +3,6 @@
     "baseUrl": "./src",
     "paths": {
       "app/components/*": ["./components/*"],
-      "app/functions": ["./functions"],
-      "app/functions/*": ["./functions/*"],
       "app/layouts/*": ["./layouts/*"],
       "app/hooks/*": ["./hooks/*"],
     },

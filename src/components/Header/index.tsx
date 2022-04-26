@@ -23,12 +23,12 @@ const Header: FC = () => {
                   <div className="flex-shrink-0 flex items-center cursor-pointer">
                     <Image
                       className="h-6 w-auto"
-                      src="/images/foxlottery.svg"
+                      src="/images/service_icon.svg"
                       alt={SERVICE_NAME}
                       width="24px"
                       height="24px"
                     />
-                    <h2 className="font-bold pl-2 tracking-wide">{SERVICE_NAME}</h2>
+                    <h2 className="font-semibold pl-2 tracking-wide">{SERVICE_NAME}</h2>
                   </div>
                 </Link>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -52,7 +52,7 @@ const Header: FC = () => {
               </div>
               <div className="-mr-2 flex items-center sm:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
