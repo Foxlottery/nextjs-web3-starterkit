@@ -2,33 +2,27 @@
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import useMenu, { MenuItem } from 'app/components/Header/useMenu'
-import Image from 'next/image'
+import config from 'app/config'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { FC } from 'react'
 
 const Header: FC = () => {
-  const { SERVICE_NAME } = process.env
   const menu = useMenu()
   const router = useRouter()
+  const { serviceIcon, serviceName } = config
 
   return (
-    <Disclosure as="nav" className="bg-white shadow w-full">
+    <Disclosure as="nav" className="w-full bg-white shadow">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
               <div className="flex">
                 <Link href="/" passHref>
-                  <div className="flex-shrink-0 flex items-center cursor-pointer">
-                    <Image
-                      className="h-6 w-auto"
-                      src="/images/service_icon.svg"
-                      alt={SERVICE_NAME}
-                      width="24px"
-                      height="24px"
-                    />
-                    <h2 className="font-semibold pl-2 tracking-wide">{SERVICE_NAME}</h2>
+                  <div className="flex items-center flex-shrink-0 cursor-pointer">
+                    <div className="w-6 h-6" dangerouslySetInnerHTML={{ __html: serviceIcon }} />
+                    <h2 className="pl-2 font-semibold tracking-wide">{serviceName}</h2>
                   </div>
                 </Link>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -50,14 +44,14 @@ const Header: FC = () => {
                   })}
                 </div>
               </div>
-              <div className="-mr-2 flex items-center sm:hidden">
+              <div className="flex items-center -mr-2 sm:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XIcon className="block w-6 h-6" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                    <MenuIcon className="block w-6 h-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>

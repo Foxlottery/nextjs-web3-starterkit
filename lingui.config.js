@@ -40,57 +40,57 @@ module.exports = {
     Trans: ['@lingui/react', 'Trans'],
   },
 }
-  
-  // For reference
-  
-  // var defaultConfig = {
-  //   catalogs: [{
-  //     path: pathJoinPosix("<rootDir>", "locale", "{locale}", "messages"),
-  //     include: ["<rootDir>"],
-  //     exclude: ["*/node_modules/*"]
-  //   }],
-  //   catalogsMergePath: "",
-  //   compileNamespace: "cjs",
-  //   compilerBabelOptions: {
-  //     minified: true,
-  //     jsescOption: {
-  //       minimal: true
-  //     }
-  //   },
-  //   extractBabelOptions: {
-  //     plugins: [],
-  //     presets: []
-  //   },
-  //   fallbackLocales: {},
-  //   format: "po",
-  //   formatOptions: {
-  //     origins: true,
-  //     lineNumbers: true
-  //   },
-  //   locales: [],
-  //   orderBy: "messageId",
-  //   pseudoLocale: "",
-  //   rootDir: ".",
-  //   runtimeConfigModule: ["@lingui/core", "i18n"],
-  //   sourceLocale: ""
-  // };
-  
-  // var exampleConfig = _objectSpread(_objectSpread({}, defaultConfig), {}, {
-  //   runtimeConfigModule: (0, _jestValidate.multipleValidOptions)({
-  //     i18n: ["@lingui/core", "i18n"],
-  //     Trans: ["@lingui/react", "Trans"]
-  //   }, ["@lingui/core", "i18n"]),
-  //   fallbackLocales: (0, _jestValidate.multipleValidOptions)({}, {
-  //     "en-US": "en"
-  //   }, {
-  //     "en-US": ["en"]
-  //   }, {
-  //     default: "en"
-  //   }, false),
-  //   extractBabelOptions: {
-  //     extends: "babelconfig.js",
-  //     rootMode: "rootmode",
-  //     plugins: ["plugin"],
-  //     presets: ["preset"]
-  //   }
-  // });
+
+// For reference
+
+// var defaultConfig = {
+//   catalogs: [{
+//     path: pathJoinPosix("<rootDir>", "locale", "{locale}", "messages"),
+//     include: ["<rootDir>"],
+//     exclude: ["*/node_modules/*"]
+//   }],
+//   catalogsMergePath: "",
+//   compileNamespace: "cjs",
+//   compilerBabelOptions: {
+//     minified: true,
+//     jsescOption: {
+//       minimal: true
+//     }
+//   },
+//   extractBabelOptions: {
+//     plugins: [],
+//     presets: []
+//   },
+//   fallbackLocales: {},
+//   format: "po",
+//   formatOptions: {
+//     origins: true,
+//     lineNumbers: true
+//   },
+//   locales: [],
+//   orderBy: "messageId",
+//   pseudoLocale: "",
+//   rootDir: ".",
+//   runtimeConfigModule: ["@lingui/core", "i18n"],
+//   sourceLocale: ""
+// };
+
+// var exampleConfig = _objectSpread(_objectSpread({}, defaultConfig), {}, {
+//   runtimeConfigModule: (0, _jestValidate.multipleValidOptions)({
+//     i18n: ["@lingui/core", "i18n"],
+//     Trans: ["@lingui/react", "Trans"]
+//   }, ["@lingui/core", "i18n"]),
+//   fallbackLocales: (0, _jestValidate.multipleValidOptions)({}, {
+//     "en-US": "en"
+//   }, {
+//     "en-US": ["en"]
+//   }, {
+//     default: "en"
+//   }, false),
+//   extractBabelOptions: {
+//     extends: "babelconfig.js",
+//     rootMode: "rootmode",
+//     plugins: ["plugin"],
+//     presets: ["preset"]
+//   }
+// });

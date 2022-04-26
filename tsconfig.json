@@ -5,6 +5,8 @@
       "app/components/*": ["./components/*"],
       "app/layouts/*": ["./layouts/*"],
       "app/hooks/*": ["./hooks/*"],
+      "app/config": ["./config"],
+      "app/config/*": ["./config/*"],
     },
     "target": "es2018",
     "lib": ["dom", "dom.iterable", "esnext"],
