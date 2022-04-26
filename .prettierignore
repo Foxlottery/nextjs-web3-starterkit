@@ -5,3 +5,4 @@
 *.html
 *.svg
 *.min.js
+locale/*.js

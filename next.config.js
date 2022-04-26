@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
-const linguiConfig = require('./lingui.config.js');
-const { locales, sourceLocale } = linguiConfig;
+const linguiConfig = require('./lingui.config.js')
+const { locales, sourceLocale } = linguiConfig
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 const { ChainId } = require('@foxlottery/core-sdk')
@@ -31,9 +31,6 @@ const nextConfig = {
       features: [],
     },
   },
-  env: {
-    SERVICE_NAME: process.env.SERVICE_NAME
-  }
 }
 
 module.exports = nextConfig
