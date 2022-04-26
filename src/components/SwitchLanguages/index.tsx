@@ -3,10 +3,9 @@ import config from 'app/config'
 import { useRouter } from 'next/router'
 import React, { FC } from 'react'
 
-const LOCALE_KEY_VALUES: Record<string, string> = config.lingui.localeKeyValues
-
 const SwitchLanguages: FC = () => {
   const { locale, locales, asPath, push } = useRouter()
+  const LOCALE_KEY_VALUES: Record<string, string> = config.lingui.localeKeyValues
 
   const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e: any) => {
     push(asPath, undefined, { locale: e.target.value })

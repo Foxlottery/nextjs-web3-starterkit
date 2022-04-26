@@ -1,15 +1,18 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import useMenu, { MenuItem } from 'app/components/Header/useMenu'
+import { useLingui } from '@lingui/react'
 import config from 'app/config'
+import translatedConfig from 'app/config/translatedConfig'
+import { MenuItem } from 'app/types/MenuItem'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { FC } from 'react'
+import React from 'react'
 
-const Header: FC = () => {
-  const menu = useMenu()
+const Header = () => {
   const router = useRouter()
+  const { i18n } = useLingui()
+  const { header } = translatedConfig(i18n)
   const { serviceIcon, serviceName } = config
 
   return (
@@ -26,7 +29,7 @@ const Header: FC = () => {
                   </div>
                 </Link>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  {menu.map((menuItem: MenuItem) => {
+                  {header.menuItems.map((menuItem: MenuItem) => {
                     const isActive = menuItem.link == router.pathname
                     if (menuItem.link) {
                       return (
@@ -60,7 +63,7 @@ const Header: FC = () => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="pt-2 pb-3 space-y-1">
-              {menu.map((menuItem: MenuItem) => {
+              {header.menuItems.map((menuItem: MenuItem) => {
                 const isActive = menuItem.link == router.pathname
                 if (menuItem.link) {
                   return (

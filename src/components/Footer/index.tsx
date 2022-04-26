@@ -2,12 +2,16 @@ import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import SwitchLanguages from 'app/components/SwitchLanguages'
 import config from 'app/config'
+import translatedConfig from 'app/config/translatedConfig'
+import { IconLink } from 'app/types/IconLink'
+import { MenuItem } from 'app/types/MenuItem'
 import Link from 'next/link'
-import React, { FC } from 'react'
+import React from 'react'
 
-const Footer: FC = () => {
-  const { footer, serviceIcon, serviceName } = config
+const Footer = () => {
   const { i18n } = useLingui()
+  const { footer } = translatedConfig(i18n)
+  const { serviceIcon, serviceName } = config
 
   return (
     <footer className="w-full bg-white" aria-labelledby="footer-heading">
@@ -22,10 +26,10 @@ const Footer: FC = () => {
             </Link>
             <p className="text-base text-gray-500">{footer.description}</p>
             <div className="flex space-x-6">
-              {footer.iconLinks.map((icon_link) => (
-                <Link key={icon_link.key} href={icon_link.link} passHref>
+              {footer.iconLinks.map((iconLink: IconLink) => (
+                <Link key={iconLink.key} href={iconLink.link} passHref>
                   <div className="text-gray-400 hover:text-gray-500">
-                    <div className="w-6 h-6" dangerouslySetInnerHTML={{ __html: icon_link.icon }} />
+                    <div className="w-6 h-6" dangerouslySetInnerHTML={{ __html: iconLink.icon }} />
                   </div>
                 </Link>
               ))}
@@ -37,7 +41,7 @@ const Footer: FC = () => {
                 <div className="mb-3" key={menu.title}>
                   <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">{menu.title}</h3>
                   <ul role="list" className="mt-4 space-y-4">
-                    {menu.menuItems.map((menuItem, index) => (
+                    {menu.menuItems.map((menuItem: MenuItem, index: number) => (
                       <li key={index}>
                         <a href={menuItem.link} className="text-base text-gray-500 hover:text-gray-900">
                           {menuItem.title}
@@ -48,12 +52,9 @@ const Footer: FC = () => {
                 </div>
               ))}
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">Language</h3>
+                <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">{i18n._(t`Language`)}</h3>
                 <form className="mt-4 sm:max-w-xs">
                   <fieldset className="w-full">
-                    <label htmlFor="language" className="sr-only">
-                      {i18n._(t`Language`)}
-                    </label>
                     <SwitchLanguages />
                   </fieldset>
                 </form>
