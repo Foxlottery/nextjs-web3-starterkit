@@ -9,6 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
     "lingui": "lingui extract --clean --overwrite && lingui compile"
   },
   "lint-staged": {
@@ -50,6 +52,8 @@
     "eslint-config-next": "12.1.5",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-unused-imports": "^1.1.5",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.0",
     "make-plural": "^7.1.0",
     "postcss": "^8.4.0",
     "postcss-flexbugs-fixes": "^5.0.2",
