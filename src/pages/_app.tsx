@@ -1,14 +1,14 @@
-import '../../styles/globals.css'
+import '../styles/index.css'
 
 import { i18n } from '@lingui/core'
 import { I18nProvider } from '@lingui/react'
 import { remoteLoader } from '@lingui/remote-loader'
+import DefaultLayout from 'app/layouts/Default'
 import * as plurals from 'make-plural/plurals'
-import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: any) {
   const router = useRouter()
   const { locale } = router
 
@@ -40,10 +40,17 @@ function MyApp({ Component, pageProps }: AppProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale])
 
+  // Allows for conditionally setting a layout to be hoisted per page
+  const Layout = Component.Layout || DefaultLayout
+
   return (
-    <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
-      <Component {...pageProps} />
-    </I18nProvider>
+    <>
+      <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </I18nProvider>
+    </>
   )
 }
 

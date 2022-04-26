@@ -31,6 +31,9 @@ const nextConfig = {
       features: [],
     },
   },
+  env: {
+    SERVICE_NAME: process.env.SERVICE_NAME
+  }
 }
 
 module.exports = nextConfig

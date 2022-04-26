@@ -1,6 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": "./src",
+    "paths": {
+      "app/components/*": ["./components/*"],
+      "app/functions": ["./functions"],
+      "app/functions/*": ["./functions/*"],
+      "app/layouts/*": ["./layouts/*"],
+      "app/hooks/*": ["./hooks/*"],
+    },
+    "target": "es2018",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
