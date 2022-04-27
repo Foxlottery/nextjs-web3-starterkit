@@ -33,3 +33,15 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Sentry
+.sentryclirc
+
+# Sentry
+.sentryclirc
+
+# Sentry
+.sentryclirc
+
+# Sentry
+.sentryclirc
