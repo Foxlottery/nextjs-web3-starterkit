@@ -6,7 +6,10 @@ import { remoteLoader } from '@lingui/remote-loader'
 import DefaultLayout from 'app/layouts/Default'
 import * as plurals from 'make-plural/plurals'
 import { useRouter } from 'next/router'
+import { DefaultSeo } from 'next-seo'
 import React, { useEffect } from 'react'
+
+import SEO from '../config/seo'
 
 function MyApp({ Component, pageProps }: any) {
   const router = useRouter()
@@ -47,6 +50,7 @@ function MyApp({ Component, pageProps }: any) {
     <>
       <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
         <Layout>
+          <DefaultSeo {...SEO} />
           <Component {...pageProps} />
         </Layout>
       </I18nProvider>
