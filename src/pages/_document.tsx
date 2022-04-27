@@ -5,6 +5,8 @@ import { Head, Html, Main, NextScript } from 'next/document'
 import SEO from '../config/seo'
 
 export default function Document() {
+  const { GOOGLE_TAG_MANAGER_ID } = process.env
+
   return (
     <Html>
       <Head>
@@ -30,6 +32,19 @@ export default function Document() {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <body>
+        {GOOGLE_TAG_MANAGER_ID ? (
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `
+              <iframe
+                src="https://www.googletagmanager.com/ns.html?id=${GOOGLE_TAG_MANAGER_ID}"
+                height="0"
+                width="0"
+                style="display:none;visibility:hidden"
+              />`,
+            }}
+          />
+        ) : null}
         <Main />
         <NextScript />
       </body>

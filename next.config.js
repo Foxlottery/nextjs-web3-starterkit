@@ -31,6 +31,9 @@ const nextConfig = {
       features: [],
     },
   },
+  env: {
+    GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID,
+  },
 }
 
 module.exports = nextConfig
