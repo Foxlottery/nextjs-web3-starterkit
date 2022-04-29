@@ -57,7 +57,7 @@ const Header = () => {
               </div>
 
               <div className="hidden sm:inline-block">
-                <Web3Network />
+                {/* <Web3Network /> */}
                 {/* <Web3Status /> */}
               </div>
 
