@@ -1,7 +1,6 @@
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
-import ExampleModalButton from 'app/components/ExampleModalButton'
-import ExampleModal from 'app/modals/ExampleModal'
+import NetworkModal from 'app/modals/NetworkModal'
 import type { NextPage } from 'next'
 
 const Dashboard: NextPage = () => {
@@ -10,8 +9,7 @@ const Dashboard: NextPage = () => {
   return (
     <>
       {i18n._(t`Dashboard`)}
-      <ExampleModal />
-      <ExampleModalButton />
+      <NetworkModal />
     </>
   )
 }

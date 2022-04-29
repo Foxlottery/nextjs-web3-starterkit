@@ -3,16 +3,33 @@ import '../styles/index.css'
 import { i18n } from '@lingui/core'
 import { I18nProvider } from '@lingui/react'
 import { remoteLoader } from '@lingui/remote-loader'
+import Web3ReactManager from 'app/components/Web3ReactManager'
+import getLibrary from 'app/functions/getLibrary'
 import DefaultLayout from 'app/layouts/Default'
-import store from 'app/state'
+import { BlockUpdater } from 'app/lib/hooks/useBlockNumber'
+import store, { persistor } from 'app/state'
+import ApplicationUpdater from 'app/state/application/updater'
+import ListsUpdater from 'app/state/lists/updater'
+import LogsUpdater from 'app/state/logs/updater'
+import TransactionUpdater from 'app/state/transactions/updater'
+import UserUpdater from 'app/state/user/updater'
 import * as plurals from 'make-plural/plurals'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import { DefaultSeo } from 'next-seo'
 import React, { useEffect } from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import { Web3ReactProvider } from 'web3-react-core'
+
+const Web3ProviderNetwork = dynamic(() => import('../components/Web3ProviderNetwork'), { ssr: false })
 
 import SEO from '../config/seo'
+
+if (typeof window !== 'undefined' && !!window.ethereum) {
+  window.ethereum.autoRefreshOnNetworkChange = false
+}
 
 function MyApp({ Component, pageProps }: any) {
   const router = useRouter()
@@ -64,18 +81,39 @@ function MyApp({ Component, pageProps }: any) {
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer', '${GOOGLE_TAG_MANAGER_ID}');
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
         `,
           }}
         />
       ) : null}
       {/* End Google Tag Manager */}
       <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
-        <ReduxProvider store={store}>
-          <Layout>
-            <DefaultSeo {...SEO} />
-            <Component {...pageProps} />
-          </Layout>
-        </ReduxProvider>
+        <Web3ReactProvider getLibrary={getLibrary}>
+          <Web3ProviderNetwork getLibrary={getLibrary}>
+            <Web3ReactManager>
+              <ReduxProvider store={store}>
+                <PersistGate persistor={persistor}>
+                  <>
+                    <ListsUpdater />
+                    <UserUpdater />
+                    <ApplicationUpdater />
+                    <TransactionUpdater />
+                    <BlockUpdater />
+                    {/* <MulticallUpdater /> */}
+                    <LogsUpdater />
+                  </>
+
+                  <Layout>
+                    <DefaultSeo {...SEO} />
+                    <Component {...pageProps} />
+                  </Layout>
+                </PersistGate>
+              </ReduxProvider>
+            </Web3ReactManager>
+          </Web3ProviderNetwork>
+        </Web3ReactProvider>
       </I18nProvider>
     </>
   )

@@ -3,8 +3,12 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import SwitchLanguages from 'app/components/SwitchLanguages'
+import Web3Network from 'app/components/Web3Network'
 import config from 'app/config'
 import translatedConfig from 'app/config/translatedConfig'
+import useIsCoinbaseWallet from 'app/hooks/useIsCoinbaseWallet'
+// import { useActiveWeb3React } from 'app/services/web3'
+// import { useNativeCurrencyBalances } from 'app/state/wallet/hooks'
 import { MenuItem } from 'app/types/MenuItem'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -15,6 +19,9 @@ const Header = () => {
   const { i18n } = useLingui()
   const { header } = translatedConfig(i18n)
   const { serviceIcon, serviceName } = config
+  const isCoinbaseWallet = useIsCoinbaseWallet()
+  // const { account, chainId, library } = useActiveWeb3React()
+  // const userEthBalance = useNativeCurrencyBalances(account ? [account] : [])?.[account ?? '']
 
   return (
     <Disclosure as="nav" className="w-full bg-white shadow">
@@ -48,6 +55,12 @@ const Header = () => {
                   })}
                 </div>
               </div>
+
+              <div className="hidden sm:inline-block">
+                <Web3Network />
+                {/* <Web3Status /> */}
+              </div>
+
               <div className="flex items-center -mr-2 sm:hidden">
                 {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300">
@@ -61,8 +74,8 @@ const Header = () => {
               </div>
             </div>
           </div>
-
           <Disclosure.Panel className="sm:hidden">
+            <Web3Network />
             <div className="pt-2 pb-3 space-y-1">
               {header.menuItems.map((menuItem: MenuItem) => {
                 const isActive = menuItem.link == router.pathname
