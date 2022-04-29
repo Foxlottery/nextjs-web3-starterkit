@@ -4,11 +4,13 @@ import { i18n } from '@lingui/core'
 import { I18nProvider } from '@lingui/react'
 import { remoteLoader } from '@lingui/remote-loader'
 import DefaultLayout from 'app/layouts/Default'
+import store from 'app/state'
 import * as plurals from 'make-plural/plurals'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import { DefaultSeo } from 'next-seo'
 import React, { useEffect } from 'react'
+import { Provider as ReduxProvider } from 'react-redux'
 
 import SEO from '../config/seo'
 
@@ -68,10 +70,12 @@ function MyApp({ Component, pageProps }: any) {
       ) : null}
       {/* End Google Tag Manager */}
       <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
-        <Layout>
-          <DefaultSeo {...SEO} />
-          <Component {...pageProps} />
-        </Layout>
+        <ReduxProvider store={store}>
+          <Layout>
+            <DefaultSeo {...SEO} />
+            <Component {...pageProps} />
+          </Layout>
+        </ReduxProvider>
       </I18nProvider>
     </>
   )
