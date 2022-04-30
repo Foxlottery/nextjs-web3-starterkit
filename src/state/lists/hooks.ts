@@ -2,7 +2,6 @@ import CHAINLINK_TOKEN_LIST from '@sushiswap/chainlink-token-list'
 import DEFAULT_TOKEN_LIST from '@sushiswap/default-token-list'
 import { TokenList } from '@uniswap/token-lists'
 import { UNSUPPORTED_LIST_URLS } from 'app/config/token-lists'
-import UNSUPPORTED_TOKEN_LIST from 'app/constants/token-lists/sushiswap-v2-unsupported.tokenlist.json'
 import { sortByListPriority } from 'app/functions/list'
 import { AppState } from 'app/state'
 import { useAppSelector } from 'app/state/hooks'
@@ -117,12 +116,6 @@ export function useActiveListUrls(): string[] | undefined {
   return useAppSelector((state) => state.lists.activeListUrls)?.filter((url) => !UNSUPPORTED_LIST_URLS.includes(url))
 }
 
-export function useInactiveListUrls(): string[] {
-  const lists = useAllLists()
-  const allActiveListUrls = useActiveListUrls()
-  return Object.keys(lists).filter((url) => !allActiveListUrls?.includes(url) && !UNSUPPORTED_LIST_URLS.includes(url))
-}
-
 // get all the tokens from active lists, combine with local default tokens
 export function useCombinedActiveList(): TokenAddressMap {
   const activeListUrls = useActiveListUrls()
@@ -130,21 +123,6 @@ export function useCombinedActiveList(): TokenAddressMap {
   return useMemo(
     () => combineMaps(combineMaps(activeTokens, TRANSFORMED_DEFAULT_TOKEN_LIST), TRANSFORMED_CHAINLINK_TOKEN_LIST),
     [activeTokens]
-  )
-}
-
-// list of tokens not supported on interface, used to show warnings and prevent swaps and adds
-export function useUnsupportedTokenList(): TokenAddressMap {
-  // get hard coded unsupported tokens
-  const localUnsupportedListMap = listToTokenMap(UNSUPPORTED_TOKEN_LIST)
-
-  // get any loaded unsupported tokens
-  const loadedUnsupportedListMap = useCombinedTokenMapFromUrls(UNSUPPORTED_LIST_URLS)
-
-  // format into one token address map
-  return useMemo(
-    () => combineMaps(localUnsupportedListMap, loadedUnsupportedListMap),
-    [localUnsupportedListMap, loadedUnsupportedListMap]
   )
 }
 
