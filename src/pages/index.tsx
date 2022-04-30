@@ -7,8 +7,10 @@ const Home = () => {
   const { i18n } = useLingui()
   return (
     <>
-      <div className="px-5 py-5 border-b border-gray-200 w-80">
-        <h3 className="text-lg font-medium leading-6 text-gray-900">{i18n._(t`Lottery`)}</h3>
+      <div className="h-96">
+        <div className="px-5 py-5 border-b border-gray-200 w-80">
+          <h3 className="text-lg font-medium leading-6 text-gray-900">{i18n._(t`Lottery`)}</h3>
+        </div>
       </div>
     </>
   )

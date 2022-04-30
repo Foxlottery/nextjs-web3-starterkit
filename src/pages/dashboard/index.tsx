@@ -1,14 +1,26 @@
-import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import type { NextPage } from 'next'
 
 const Dashboard: NextPage = () => {
   const { i18n } = useLingui()
+  const stats = [
+    { name: 'Number of participants', stat: '71,897' },
+    { name: 'Amount of money raised', stat: '13,329,897 USD' },
+    { name: 'Revenue Projection', stat: '919,897 USD' },
+  ]
 
   return (
     <>
-      <div className="px-5 py-5 border-b border-gray-200 w-80">
-        <h3 className="text-lg font-medium leading-6 text-gray-900">{i18n._(t`Dashboard`)}</h3>
+      <div className="h-96">
+        <h3 className="mt-5 text-lg font-medium leading-6 text-gray-900">Last 30 days</h3>
+        <dl className="grid grid-cols-1 gap-5 mt-5 sm:grid-cols-3">
+          {stats.map((item) => (
+            <div key={item.name} className="px-4 py-5 overflow-hidden bg-white rounded-lg shadow sm:p-6">
+              <dt className="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
+              <dd className="mt-1 text-3xl font-semibold text-gray-900">{item.stat}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </>
   )

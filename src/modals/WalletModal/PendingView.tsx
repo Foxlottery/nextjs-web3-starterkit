@@ -73,7 +73,7 @@ const PendingView: FC<PendingView> = ({ id, connector, error = false, setPending
               clickable={false}
               header={option.name}
               subheader={option.description}
-              icon={'https://app.sushi.com' + '/images/wallets/' + option.iconName}
+              icon={'/images/wallets/' + option.iconName}
             />
           )
         }
