@@ -1,27 +1,32 @@
+import { NATIVE } from '@foxlottery/core-sdk'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import SwitchLanguages from 'app/components/SwitchLanguages'
 import Web3Network from 'app/components/Web3Network'
+import Web3Status from 'app/components/Web3Status'
 import config from 'app/config'
 import translatedConfig from 'app/config/translatedConfig'
 import useIsCoinbaseWallet from 'app/hooks/useIsCoinbaseWallet'
-// import { useActiveWeb3React } from 'app/services/web3'
-// import { useNativeCurrencyBalances } from 'app/state/wallet/hooks'
+import { useActiveWeb3React } from 'app/services/web3'
+import { useNativeCurrencyBalances } from 'app/state/wallet/hooks'
 import { MenuItem } from 'app/types/MenuItem'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
+
+import Dots from '../Dots'
+import Typography from '../Typography'
 
 const Header = () => {
   const router = useRouter()
   const { i18n } = useLingui()
   const { header } = translatedConfig(i18n)
   const { serviceIcon, serviceName } = config
+  const { account, chainId, library } = useActiveWeb3React()
   const isCoinbaseWallet = useIsCoinbaseWallet()
-  // const { account, chainId, library } = useActiveWeb3React()
-  // const userEthBalance = useNativeCurrencyBalances(account ? [account] : [])?.[account ?? '']
+  const userEthBalance = useNativeCurrencyBalances(account ? [account] : [])?.[account ?? '']
 
   return (
     <Disclosure as="nav" className="w-full bg-white shadow">
@@ -55,13 +60,26 @@ const Header = () => {
                   })}
                 </div>
               </div>
+              <div className="items-center justify-end hidden w-auto shadow select-none sm:flex whitespace-nowrap">
+                {account && chainId && (
+                  <Typography weight={700} variant="sm" className="hidden px-2 py-5 font-bold sm:flex">
+                    {userEthBalance ? (
+                      `${userEthBalance?.toSignificant(4)} ${NATIVE[chainId].symbol}`
+                    ) : (
+                      <Dots>{i18n._(t`FETCHING`)}</Dots>
+                    )}
+                  </Typography>
+                )}
 
-              <div className="hidden sm:inline-block">
-                {/* <Web3Network /> */}
-                {/* <Web3Status /> */}
+                <Web3Status />
+                <div className="flex items-center sm:mr-2">
+                  {library && (library.provider.isMetaMask || isCoinbaseWallet) && <Web3Network />}
+                </div>
               </div>
 
-              <div className="flex items-center -mr-2 sm:hidden">
+              <div className="flex items-center sm:mr-2 sm:hidden">
+                {library && (library.provider.isMetaMask || isCoinbaseWallet) && <Web3Network />}
+
                 {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300">
                   <span className="sr-only">Open main menu</span>
@@ -75,7 +93,6 @@ const Header = () => {
             </div>
           </div>
           <Disclosure.Panel className="sm:hidden">
-            <Web3Network />
             <div className="pt-2 pb-3 space-y-1">
               {header.menuItems.map((menuItem: MenuItem) => {
                 const isActive = menuItem.link == router.pathname
@@ -94,6 +111,19 @@ const Header = () => {
                   )
                 }
               })}
+
+              <div>
+                {account && chainId && (
+                  <Typography weight={700} variant="sm" className="py-5 pl-5 font-bold">
+                    {userEthBalance ? (
+                      `${userEthBalance?.toSignificant(4)} ${NATIVE[chainId].symbol}`
+                    ) : (
+                      <Dots>{i18n._(t`FETCHING`)}</Dots>
+                    )}
+                  </Typography>
+                )}
+                <Web3Status />
+              </div>
             </div>
 
             <div className="mx-3 mt-10 mb-3">

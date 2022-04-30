@@ -69,7 +69,7 @@ const Transaction: FC<{ hash: string }> = ({ hash }) => {
         {privateTx && (
           <>
             <QuestionHelper
-              text={i18n._(t`This transaction has been sent using SushiGuard`)}
+              text={i18n._(t`This transaction has been sent using Guard`)}
               icon={<ShieldCheckIcon className="text-green" width={14} />}
             />
 
@@ -77,7 +77,7 @@ const Transaction: FC<{ hash: string }> = ({ hash }) => {
               <>
                 {privateTx.status.receivedAt && (
                   <QuestionHelper
-                    text={i18n._(t`Transaction successfully received by SushiGuard`)}
+                    text={i18n._(t`Transaction successfully received by Guard`)}
                     icon={<BadgeCheckIcon className="text-green" width={14} />}
                   />
                 )}
@@ -85,7 +85,7 @@ const Transaction: FC<{ hash: string }> = ({ hash }) => {
                 {privateTx.status.relayedAt && (
                   <>
                     <QuestionHelper
-                      text={i18n._(t`Transaction relayed by SushiGuard to downstream miners`)}
+                      text={i18n._(t`Transaction relayed by Guard to downstream miners`)}
                       icon={
                         <ChevronDoubleRightIcon
                           className={privateTx.status.relayFailure ? 'text-red' : 'text-green'}

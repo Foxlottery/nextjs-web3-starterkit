@@ -3,7 +3,7 @@ import { NETWORK_ICON } from 'app/config/networks'
 import { switchToNetwork } from 'app/functions/network'
 import useIsWindowVisible from 'app/hooks/useIsWindowVisible'
 import usePrevious from 'app/hooks/usePrevious'
-import NetworkModel from 'app/modals/NetworkModal'
+import NetworkModal from 'app/modals/NetworkModal'
 import { useActiveWeb3React } from 'app/services/web3'
 import { useNetworkModalToggle } from 'app/state/application/hooks'
 import Cookies from 'js-cookie'
@@ -109,7 +109,7 @@ function Web3Network(): JSX.Element | null {
         {/*@ts-ignore TYPE NEEDS FIXING*/}
         <Image src={NETWORK_ICON[chainId]} alt="Switch Network" className="rounded-full" width="24px" height="24px" />
       </div>
-      <NetworkModel />
+      <NetworkModal />
     </div>
   )
 }

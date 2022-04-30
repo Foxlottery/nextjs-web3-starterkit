@@ -1,5 +1,6 @@
 import { ExternalProvider } from '@ethersproject/providers'
-import { SUPPORTED_NETWORKS } from 'app/modals/NetworkModal'
+import { SUPPORTED_NETWORKS } from 'app/config/networks'
+import cookie from 'js-cookie'
 
 interface SwitchNetworkArguments {
   provider: ExternalProvider
@@ -10,9 +11,11 @@ export const switchToNetwork = async ({ provider, chainId }: SwitchNetworkArgume
   if (!provider.request) {
     return
   }
+
   console.log(`Switching to chain ${chainId}`)
   const params = SUPPORTED_NETWORKS[chainId]
   try {
+    cookie.set('chain-id', chainId.toString())
     await provider.request({
       method: 'wallet_switchEthereumChain',
       params: [{ chainId: params.chainId }],

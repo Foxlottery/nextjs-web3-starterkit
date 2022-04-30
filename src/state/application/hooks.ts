@@ -1,3 +1,4 @@
+import { DEFAULT_TXN_DISMISS_MS } from 'app/constants'
 import { useAppDispatch } from 'app/state/hooks'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'

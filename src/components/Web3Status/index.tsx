@@ -45,7 +45,7 @@ function Web3StatusInner() {
     return (
       <div
         id="web3-status-connected"
-        className="flex items-center gap-2 text-sm rounded-lg text-primary"
+        className="flex items-center w-40 gap-2 ml-4 text-sm bg-gray-200 rounded-lg sm:w-28 text-primary sm:bg-white sm:ml-0"
         onClick={toggleWalletModal}
       >
         {hasPendingTransactions ? (
@@ -57,28 +57,26 @@ function Web3StatusInner() {
           </div>
         ) : (
           <div className="relative flex items-center gap-2 cursor-pointer pointer-events-auto">
-            <Typography
-              weight={700}
-              variant="sm"
-              className="px-2 py-5 font-bold rounded-full text-inherit hover:text-white"
-            >
+            <Typography weight={700} variant="sm" className="px-2 py-5 font-bold rounded-full text-inheri">
               {ENSName ? ENSName.toUpperCase() : shortenAddress(account)}
             </Typography>
 
-            <Davatar
-              size={24}
-              address={account}
-              defaultComponent={
-                <Image
-                  src="https://app.sushi.com/images/chef.svg"
-                  alt="Sushi Chef"
-                  width={24}
-                  height={24}
-                  className="rounded-full pointer-events-none"
-                />
-              }
-              provider={library}
-            />
+            <div className="inline-block sm:hidden">
+              <Davatar
+                size={48}
+                address={account}
+                defaultComponent={
+                  <Image
+                    src="/images/user.svg"
+                    alt="User Icon"
+                    width={36}
+                    height={36}
+                    className="rounded-full pointer-events-none"
+                  />
+                }
+                provider={library}
+              />
+            </div>
           </div>
         )}
         {/* {!hasPendingTransactions && connector && (

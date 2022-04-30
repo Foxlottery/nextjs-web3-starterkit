@@ -7,6 +7,7 @@ import Web3ReactManager from 'app/components/Web3ReactManager'
 import getLibrary from 'app/functions/getLibrary'
 import DefaultLayout from 'app/layouts/Default'
 import { BlockUpdater } from 'app/lib/hooks/useBlockNumber'
+import { MulticallUpdater } from 'app/lib/state/multicall'
 import store, { persistor } from 'app/state'
 import ApplicationUpdater from 'app/state/application/updater'
 import ListsUpdater from 'app/state/lists/updater'
@@ -18,7 +19,7 @@ import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import { DefaultSeo } from 'next-seo'
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Web3ReactProvider } from 'web3-react-core'
@@ -67,6 +68,9 @@ function MyApp({ Component, pageProps }: any) {
   // Allows for conditionally setting a layout to be hoisted per page
   const Layout = Component.Layout || DefaultLayout
 
+  // Allows for conditionally setting a guard to be hoisted per page
+  const Guard = Component.Guard || Fragment
+
   return (
     <>
       {/* Google Tag Manager */}
@@ -101,14 +105,16 @@ function MyApp({ Component, pageProps }: any) {
                     <ApplicationUpdater />
                     <TransactionUpdater />
                     <BlockUpdater />
-                    {/* <MulticallUpdater /> */}
+                    <MulticallUpdater />
                     <LogsUpdater />
                   </>
 
-                  <Layout>
-                    <DefaultSeo {...SEO} />
-                    <Component {...pageProps} />
-                  </Layout>
+                  <Guard>
+                    <Layout>
+                      <DefaultSeo {...SEO} />
+                      <Component {...pageProps} />
+                    </Layout>
+                  </Guard>
                 </PersistGate>
               </ReduxProvider>
             </Web3ReactManager>
