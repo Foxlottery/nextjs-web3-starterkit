@@ -38,12 +38,12 @@ const Footer = () => {
           <div className="grid grid-cols-1 gap-8 mt-12 xl:mt-0 xl:col-span-2">
             <div className="grid grid-cols-2 md:grid md:grid-cols-4 md:gap-8">
               {footer.menus.map((menu) => (
-                <div className="mb-3" key={menu.title}>
-                  <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">{menu.title}</h3>
+                <div className="mt-5 mb-3" key={menu.title}>
+                  <h3 className="text-base font-semibold tracking-wider text-gray-400 uppercase">{menu.title}</h3>
                   <ul role="list" className="mt-4 space-y-4">
                     {menu.menuItems.map((menuItem: MenuItem, index: number) => (
                       <li key={index}>
-                        <a href={menuItem.link} className="text-base text-gray-500 hover:text-gray-900">
+                        <a href={menuItem.link} className="text-sm text-gray-500 hover:text-gray-900">
                           {menuItem.title}
                         </a>
                       </li>
@@ -51,7 +51,7 @@ const Footer = () => {
                   </ul>
                 </div>
               ))}
-              <div className="mt-12 md:mt-0">
+              <div className="mt-5 mb-3">
                 <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">{i18n._(t`Language`)}</h3>
                 <form className="mt-4 sm:max-w-xs">
                   <fieldset className="w-full">
