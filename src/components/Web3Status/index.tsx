@@ -45,7 +45,7 @@ function Web3StatusInner() {
     return (
       <div
         id="web3-status-connected"
-        className="flex items-center w-40 gap-2 ml-4 text-sm bg-gray-200 rounded-lg sm:w-28 text-primary sm:bg-white sm:ml-0"
+        className="flex items-center gap-2 ml-4 text-sm bg-gray-200 rounded-lg w-44 sm:w-28 text-primary sm:bg-white sm:ml-0"
         onClick={toggleWalletModal}
       >
         {hasPendingTransactions ? (
@@ -61,7 +61,7 @@ function Web3StatusInner() {
               {ENSName ? ENSName.toUpperCase() : shortenAddress(account)}
             </Typography>
 
-            <div className="inline-block sm:hidden">
+            <div className="flex items-center sm:hidden">
               <Davatar
                 size={48}
                 address={account}

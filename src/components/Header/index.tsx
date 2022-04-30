@@ -38,7 +38,7 @@ const Header = () => {
                 <Link href="/" passHref>
                   <div className="flex items-center flex-shrink-0 cursor-pointer">
                     <div className="w-6 h-6" dangerouslySetInnerHTML={{ __html: serviceIcon }} />
-                    <h2 className="pl-2 font-semibold tracking-wide">{serviceName}</h2>
+                    <h2 className="pl-2 font-bold tracking-wide">{serviceName}</h2>
                   </div>
                 </Link>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
