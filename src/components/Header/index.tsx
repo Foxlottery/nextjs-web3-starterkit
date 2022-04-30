@@ -123,6 +123,17 @@ const Header = () => {
                   </Typography>
                 )}
                 <Web3Status />
+
+                <div className="mx-3 mt-10 mb-3">
+                  <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
+                    {i18n._(t`Language`)}
+                  </h3>
+                  <form className="mt-4 sm:max-w-xs">
+                    <fieldset className="w-full">
+                      <SwitchLanguages />
+                    </fieldset>
+                  </form>
+                </div>
               </div>
             </div>
 
