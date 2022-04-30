@@ -1,7 +1,7 @@
 import { CurrencyAmount, Token } from '@foxlottery/core-sdk'
+import { useActiveWeb3React } from 'app/services/web3'
 import { useTokenBalances, useTokenBalancesWithLoadingIndicator } from 'lib/hooks/useCurrencyBalance'
 import { useMemo } from 'react'
-import { useActiveWeb3React } from 'services/web3'
 
 import { useAllTokens } from '../../hooks/Tokens'
 

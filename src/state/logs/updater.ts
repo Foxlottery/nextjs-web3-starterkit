@@ -1,6 +1,6 @@
+import { useActiveWeb3React } from 'app/services/web3'
 import useBlockNumber from 'lib/hooks/useBlockNumber'
 import { useEffect, useMemo } from 'react'
-import { useActiveWeb3React } from 'services/web3'
 
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { fetchedLogs, fetchedLogsError, fetchingLogs } from './slice'

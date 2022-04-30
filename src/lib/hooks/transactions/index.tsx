@@ -1,9 +1,9 @@
 import { Token } from '@foxlottery/core-sdk'
+import { useActiveWeb3React } from 'app/services/web3'
 import { useAtomValue, useUpdateAtom } from 'jotai/utils'
 import { Transaction, TransactionInfo, transactionsAtom, TransactionType } from 'lib/state/transactions'
 import ms from 'ms.macro'
 import { useCallback } from 'react'
-import { useActiveWeb3React } from 'services/web3'
 import invariant from 'tiny-invariant'
 
 import useBlockNumber from '../useBlockNumber'

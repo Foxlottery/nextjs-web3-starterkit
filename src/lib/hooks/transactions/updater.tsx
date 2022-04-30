@@ -2,12 +2,12 @@ import { TransactionReceipt } from '@ethersproject/abstract-provider'
 import { ChainId } from '@foxlottery/core-sdk'
 import { SUSHIGUARD_RELAY } from 'app/config/sushiguard'
 import { PrivateTxState, PrivateTxStatus } from 'app/entities/Guard'
+import useBlockNumber, { useFastForwardBlockNumber } from 'app/lib/hooks/useBlockNumber'
 import { fetchJsonRpc } from 'app/lib/jsonrpc'
+import { useActiveWeb3React } from 'app/services/web3'
 import { retry, RetryableError, RetryOptions } from 'functions/retry'
-import useBlockNumber, { useFastForwardBlockNumber } from 'lib/hooks/useBlockNumber'
 import ms from 'ms.macro'
 import { useCallback, useEffect } from 'react'
-import { useActiveWeb3React } from 'services/web3'
 
 interface Transaction {
   addedTime: number

@@ -1,8 +1,8 @@
 import { ChainId } from '@foxlottery/core-sdk'
 import { DEFAULT_TXN_DISMISS_MS } from 'app/constants'
+import { useActiveWeb3React } from 'app/services/web3'
 import LibUpdater from 'lib/hooks/transactions/updater'
 import { useCallback, useMemo } from 'react'
-import { useActiveWeb3React } from 'services/web3'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
 
 import { useAddPopup } from '../application/hooks'

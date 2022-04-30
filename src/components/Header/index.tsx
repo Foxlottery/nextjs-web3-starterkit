@@ -60,7 +60,7 @@ const Header = () => {
                   })}
                 </div>
               </div>
-              <div className="items-center justify-end hidden w-auto shadow select-none sm:flex whitespace-nowrap">
+              <div className="items-center justify-end hidden w-auto select-none sm:flex whitespace-nowrap">
                 {account && chainId && (
                   <Typography weight={700} variant="sm" className="hidden px-2 py-5 font-bold sm:flex">
                     {userEthBalance ? (
