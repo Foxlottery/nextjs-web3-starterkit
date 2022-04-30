@@ -370,7 +370,7 @@ export function useTrackedTokenPairs(): [Token, Token][] {
 /**
  * Returns a boolean indicating if the user has enabled SushiGuard protection.
  */
-export function useUserSushiGuard(): [boolean, (newUseSushiGuard: boolean) => void] {
+export function useUserGuard(): [boolean, (newUseSushiGuard: boolean) => void] {
   const dispatch = useAppDispatch()
 
   // @ts-ignore TYPE NEEDS FIXING

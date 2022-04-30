@@ -65,7 +65,7 @@ export function TransactionsUpdater() {
 
   const updateTxs = useUpdateAtom(transactionsAtom)
   const onCheck = useCallback(
-    ({ chainId, hash, blockNumber }) => {
+    ({ chainId, hash, blockNumber }: { chainId: number; hash: any; blockNumber: number }) => {
       updateTxs((txs) => {
         const tx = txs[chainId]?.[hash]
         if (tx) {
@@ -78,7 +78,7 @@ export function TransactionsUpdater() {
     [updateTxs]
   )
   const onPrivateTxStatusCheck = useCallback(
-    ({ chainId, hash, blockNumber, status }) => {
+    ({ chainId, hash, blockNumber, status }: { chainId: number; hash: any; blockNumber: number; status: any }) => {
       updateTxs((txs) => {
         const tx = txs[chainId]?.[hash]
         if (tx) {
@@ -92,7 +92,7 @@ export function TransactionsUpdater() {
     [updateTxs]
   )
   const onReceipt = useCallback(
-    ({ chainId, hash, receipt }) => {
+    ({ chainId, hash, receipt }: { chainId: number; hash: any; receipt: any }) => {
       updateTxs((txs) => {
         const tx = txs[chainId]?.[hash]
         if (tx) {

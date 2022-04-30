@@ -1,9 +1,8 @@
 import { useLingui } from '@lingui/react'
 import { Feature } from 'app/enums'
 import NetworkGuard from 'app/guards/Network'
-import type { NextPage } from 'next'
 
-const Home: NextPage = () => {
+const Home = () => {
   const { i18n } = useLingui()
   return (
     <>
@@ -21,7 +20,7 @@ const Home: NextPage = () => {
                 type="text"
                 name="price"
                 id="price"
-                className="block w-full pr-12 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 pl-7 sm:text-sm"
+                className="block w-full pr-12 border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 pl-7 sm:text-sm"
                 placeholder="0.00"
                 aria-describedby="price-currency"
               />

@@ -1,6 +1,6 @@
-import { ChainId } from '@foxlottery/core-sdk'
 import { t } from '@lingui/macro'
 import { Trans, useLingui } from '@lingui/react'
+import { ChainId } from '@sushiswap/core-sdk'
 import HeadlessUIModal from 'app/components/Modal/HeadlessUIModal'
 import NavLink from 'app/components/NavLink'
 import Typography from 'app/components/Typography'
@@ -15,8 +15,8 @@ import Image from 'next/image'
 import React, { FC, Fragment } from 'react'
 
 interface NetworkGuardProps {
+  children: any
   feature: Feature
-  children?: React.ReactNode
   asModal?: boolean
 }
 
@@ -107,7 +107,7 @@ const Component: FC<NetworkGuardProps> = ({ children, feature, asModal = true })
   )
 }
 
-type NetworkGuard = (feature: Feature, renderChildren?: boolean) => FC
+type NetworkGuard = (feature: Feature, renderChildren?: boolean) => FC<{ children: any }>
 const NetworkGuard: NetworkGuard = (feature: Feature, renderChildren = true) => {
   if (!renderChildren) {
     return ({ children }) => (

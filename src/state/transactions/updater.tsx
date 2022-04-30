@@ -18,12 +18,13 @@ export default function Updater() {
   const pendingTransactions = useMemo(() => (chainId ? state[chainId] ?? {} : {}), [chainId, state])
 
   const onCheck = useCallback(
-    ({ chainId, hash, blockNumber }) => dispatch(checkedTransaction({ chainId, hash, blockNumber })),
+    ({ chainId, hash, blockNumber }: { chainId: number; hash: any; blockNumber: number }) =>
+      dispatch(checkedTransaction({ chainId, hash, blockNumber })),
     [dispatch]
   )
 
   const onPrivateTxStatusCheck = useCallback(
-    ({ chainId, hash, blockNumber, status }) => {
+    ({ chainId, hash, blockNumber, status }: { chainId: number; hash: any; blockNumber: number; status: any }) => {
       dispatch(
         updatePrivateTxStatus({
           chainId,
@@ -37,7 +38,7 @@ export default function Updater() {
   )
 
   const onReceipt = useCallback(
-    ({ chainId, hash, receipt }) => {
+    ({ chainId, hash, receipt }: { chainId: number; hash: any; receipt: any }) => {
       dispatch(
         finalizeTransaction({
           chainId,
