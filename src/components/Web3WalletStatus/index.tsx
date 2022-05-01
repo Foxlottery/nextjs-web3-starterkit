@@ -11,7 +11,7 @@ import { useWeb3React } from 'web3-react-core'
 import Typography from '../Typography'
 import Web3Connect from '../Web3Connect'
 
-function Web3StatusInner() {
+function Web3WalletStatusInner() {
   const { account, library } = useWeb3React()
 
   const { ENSName } = useENSName(account ?? undefined)
@@ -54,7 +54,7 @@ function Web3StatusInner() {
   }
 }
 
-export default function Web3Status() {
+export default function Web3WalletStatus() {
   const { active, account } = useWeb3React()
   const contextNetwork = useWeb3React(NetworkContextName)
   const { ENSName } = useENSName(account ?? undefined)
@@ -65,7 +65,7 @@ export default function Web3Status() {
 
   return (
     <>
-      <Web3StatusInner />
+      <Web3WalletStatusInner />
       <WalletModal ENSName={ENSName ?? undefined} />
     </>
   )

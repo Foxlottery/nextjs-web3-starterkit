@@ -116,8 +116,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: string
       decimals: number
     }
-    rpcUrls: string[]
-    blockExplorerUrls: string[]
   }
 > = {
   [ChainId.ETHEREUM]: {
@@ -128,8 +126,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'ETH',
       decimals: 18,
     },
-    rpcUrls: ['https://mainnet.infura.io/v3'],
-    blockExplorerUrls: ['https://etherscan.com'],
   },
   [ChainId.ROPSTEN]: {
     chainId: '0x3',
@@ -139,8 +135,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'ETH',
       decimals: 18,
     },
-    rpcUrls: ['https://ropsten.infura.io/v3'],
-    blockExplorerUrls: ['https://ropsten.etherscan.com'],
   },
   [ChainId.RINKEBY]: {
     chainId: '0x4',
@@ -150,8 +144,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'ETH',
       decimals: 18,
     },
-    rpcUrls: ['https://rinkeby.infura.io/v3'],
-    blockExplorerUrls: ['https://rinkeby.etherscan.com'],
   },
   [ChainId.GÖRLI]: {
     chainId: '0x5',
@@ -161,8 +153,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'ETH',
       decimals: 18,
     },
-    rpcUrls: ['https://goerli.infura.io/v3'],
-    blockExplorerUrls: ['https://goerli.etherscan.com'],
   },
   [ChainId.KOVAN]: {
     chainId: '0x2A',
@@ -172,8 +162,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'ETH',
       decimals: 18,
     },
-    rpcUrls: ['https://kovan.infura.io/v3'],
-    blockExplorerUrls: ['https://kovan.etherscan.com'],
   },
   [ChainId.FANTOM]: {
     chainId: '0xfa',
@@ -183,8 +171,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'FTM',
       decimals: 18,
     },
-    rpcUrls: ['https://rpcapi.fantom.network'],
-    blockExplorerUrls: ['https://ftmscan.com'],
   },
   [ChainId.BSC]: {
     chainId: '0x38',
@@ -194,8 +180,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'BNB',
       decimals: 18,
     },
-    rpcUrls: ['https://bsc-dataseed.binance.org'],
-    blockExplorerUrls: ['https://bscscan.com'],
   },
   [ChainId.MATIC]: {
     chainId: '0x89',
@@ -205,8 +189,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'MATIC',
       decimals: 18,
     },
-    rpcUrls: ['https://polygon-rpc.com'], // ['https://matic-mainnet.chainstacklabs.com/'],
-    blockExplorerUrls: ['https://polygonscan.com'],
   },
   [ChainId.HECO]: {
     chainId: '0x80',
@@ -216,8 +198,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'HT',
       decimals: 18,
     },
-    rpcUrls: ['https://http-mainnet.hecochain.com'],
-    blockExplorerUrls: ['https://hecoinfo.com'],
   },
   [ChainId.XDAI]: {
     chainId: '0x64',
@@ -227,8 +207,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'xDai',
       decimals: 18,
     },
-    rpcUrls: ['https://rpc.xdaichain.com'],
-    blockExplorerUrls: ['https://blockscout.com/poa/xdai'],
   },
   [ChainId.HARMONY]: {
     chainId: '0x63564C40',
@@ -238,13 +216,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'ONE',
       decimals: 18,
     },
-    rpcUrls: [
-      'https://api.harmony.one',
-      'https://s1.api.harmony.one',
-      'https://s2.api.harmony.one',
-      'https://s3.api.harmony.one',
-    ],
-    blockExplorerUrls: ['https://explorer.harmony.one/'],
   },
   [ChainId.AVALANCHE]: {
     chainId: '0xA86A',
@@ -254,8 +225,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'AVAX',
       decimals: 18,
     },
-    rpcUrls: ['https://api.avax.network/ext/bc/C/rpc'],
-    blockExplorerUrls: ['https://snowtrace.io'],
   },
   [ChainId.OKEX]: {
     chainId: '0x42',
@@ -265,8 +234,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'OKT',
       decimals: 18,
     },
-    rpcUrls: ['https://exchainrpc.okex.org'],
-    blockExplorerUrls: ['https://www.oklink.com/okexchain'],
   },
   [ChainId.ARBITRUM]: {
     chainId: '0xA4B1',
@@ -276,8 +243,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'ETH',
       decimals: 18,
     },
-    rpcUrls: ['https://arb1.arbitrum.io/rpc'],
-    blockExplorerUrls: ['https://arbiscan.io'],
   },
   [ChainId.CELO]: {
     chainId: '0xA4EC',
@@ -287,8 +252,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'CELO',
       decimals: 18,
     },
-    rpcUrls: ['https://forno.celo.org'],
-    blockExplorerUrls: ['https://explorer.celo.org'],
   },
   [ChainId.MOONRIVER]: {
     chainId: '0x505',
@@ -298,8 +261,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'MOVR',
       decimals: 18,
     },
-    rpcUrls: ['https://rpc.moonriver.moonbeam.network'],
-    blockExplorerUrls: ['https://moonriver.moonscan.io'],
   },
   [ChainId.FUSE]: {
     chainId: '0x7A',
@@ -309,8 +270,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'FUSE',
       decimals: 18,
     },
-    rpcUrls: ['https://rpc.fuse.io'],
-    blockExplorerUrls: ['https://explorer.fuse.io'],
   },
   [ChainId.TELOS]: {
     chainId: '0x28',
@@ -320,8 +279,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'TLOS',
       decimals: 18,
     },
-    rpcUrls: ['https://mainnet.telos.net/evm'],
-    blockExplorerUrls: ['https://rpc1.us.telos.net/v2/explore'],
   },
   [ChainId.PALM]: {
     chainId: '0x2A15C308D',
@@ -331,8 +288,6 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'PALM',
       decimals: 18,
     },
-    rpcUrls: ['https://palm-mainnet.infura.io/v3/da5fbfafcca14b109e2665290681e267'],
-    blockExplorerUrls: ['https://explorer.palm.io'],
   },
   [ChainId.MOONBEAM]: {
     chainId: '0x504',
@@ -342,7 +297,5 @@ export const SUPPORTED_NETWORKS: Record<
       symbol: 'GLMR',
       decimals: 18,
     },
-    rpcUrls: ['https://rpc.api.moonbeam.network'],
-    blockExplorerUrls: ['https://moonbeam.moonscan.io'],
   },
 }

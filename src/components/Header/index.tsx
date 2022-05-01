@@ -5,7 +5,7 @@ import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import SwitchLanguages from 'app/components/SwitchLanguages'
 import Web3Network from 'app/components/Web3Network'
-import Web3Status from 'app/components/Web3Status'
+import Web3WalletStatus from 'app/components/Web3WalletStatus'
 import config from 'app/config'
 import translatedConfig from 'app/config/translatedConfig'
 import useIsCoinbaseWallet from 'app/hooks/useIsCoinbaseWallet'
@@ -71,7 +71,7 @@ const Header = () => {
                   </Typography>
                 )}
 
-                <Web3Status />
+                <Web3WalletStatus />
                 <div className="flex items-center sm:mr-2">
                   {library && (library.provider.isMetaMask || isCoinbaseWallet) && <Web3Network />}
                 </div>
@@ -122,7 +122,7 @@ const Header = () => {
                     )}
                   </Typography>
                 )}
-                <Web3Status />
+                <Web3WalletStatus />
 
                 <div className="mx-3 mt-10 mb-3">
                   <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
