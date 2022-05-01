@@ -1,6 +1,8 @@
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
+import SwitchLanguages from 'app/components/SwitchLanguages'
 import config from 'app/config'
 import translatedConfig from 'app/config/translatedConfig'
 import { MenuItem } from 'app/types/MenuItem'
@@ -79,6 +81,15 @@ const Header = () => {
                   )
                 }
               })}
+            </div>
+
+            <div className="mx-3 mt-10 mb-3">
+              <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">{i18n._(t`Language`)}</h3>
+              <form className="mt-4 sm:max-w-xs">
+                <fieldset className="w-full">
+                  <SwitchLanguages />
+                </fieldset>
+              </form>
             </div>
           </Disclosure.Panel>
         </>
