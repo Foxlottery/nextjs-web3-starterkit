@@ -11,7 +11,6 @@ import { MulticallUpdater } from 'app/lib/state/multicall'
 import store, { persistor } from 'app/state'
 import ApplicationUpdater from 'app/state/application/updater'
 import LogsUpdater from 'app/state/logs/updater'
-import UserUpdater from 'app/state/user/updater'
 import * as plurals from 'make-plural/plurals'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
@@ -98,7 +97,6 @@ function MyApp({ Component, pageProps }: any) {
               <ReduxProvider store={store}>
                 <PersistGate persistor={persistor}>
                   <>
-                    <UserUpdater />
                     <ApplicationUpdater />
                     <BlockUpdater />
                     <MulticallUpdater />
