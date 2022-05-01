@@ -6,10 +6,8 @@ import { injected, SUPPORTED_WALLETS } from 'app/config/wallets'
 import { getExplorerLink } from 'app/functions/explorer'
 import { shortenAddress } from 'app/functions/format'
 import { useActiveWeb3React } from 'app/services/web3'
-import { useAppDispatch } from 'app/state/hooks'
-import { clearAllTransactions } from 'app/state/transactions/actions'
 import Image from 'next/image'
-import React, { FC, useCallback, useMemo } from 'react'
+import React, { FC, useMemo } from 'react'
 import { ExternalLink as LinkIcon } from 'react-feather'
 import { WalletLinkConnector } from 'web3-react-walletlink-connector'
 
@@ -17,26 +15,15 @@ import Button from '../Button'
 import ExternalLink from '../ExternalLink'
 import Typography from '../Typography'
 import Copy from './Copy'
-import Transaction from './Transaction'
 
 interface AccountDetailsProps {
   toggleWalletModal: () => void
-  pendingTransactions: string[]
-  confirmedTransactions: string[]
   ENSName?: string
-  openOptions: () => void
 }
 
-const AccountDetails: FC<AccountDetailsProps> = ({
-  toggleWalletModal,
-  pendingTransactions,
-  confirmedTransactions,
-  ENSName,
-  openOptions,
-}) => {
+const AccountDetails: FC<AccountDetailsProps> = ({ toggleWalletModal, ENSName }) => {
   const { i18n } = useLingui()
   const { chainId, account, connector, deactivate, library } = useActiveWeb3React()
-  const dispatch = useAppDispatch()
 
   const isMetaMask = useMemo(() => {
     const { ethereum } = window
@@ -56,10 +43,6 @@ const AccountDetails: FC<AccountDetailsProps> = ({
       </Typography>
     )
   }, [connector, isMetaMask])
-
-  const clearAllTransactionsCallback = useCallback(() => {
-    if (chainId) dispatch(clearAllTransactions({ chainId }))
-  }, [dispatch, chainId])
 
   return (
     <div className="space-y-3">
@@ -113,32 +96,6 @@ const AccountDetails: FC<AccountDetailsProps> = ({
                 </Copy>
               )}
             </div>
-          </div>
-        </HeadlessUiModal.BorderedContent>
-        <HeadlessUiModal.BorderedContent className="flex flex-col gap-3">
-          <div className="flex items-center justify-between">
-            <Typography variant="xs" weight={700} className="text-secondary">
-              {i18n._(t`Recent Transactions`)}
-            </Typography>
-            <Button variant="outlined" color="blue" size="xs" onClick={clearAllTransactionsCallback}>
-              {i18n._(t`Clear all`)}
-            </Button>
-          </div>
-          <div className="flex flex-col divide-y divide-dark-800">
-            {!!pendingTransactions.length || !!confirmedTransactions.length ? (
-              <>
-                {pendingTransactions.map((el, index) => (
-                  <Transaction key={index} hash={el} />
-                ))}
-                {confirmedTransactions.map((el, index) => (
-                  <Transaction key={index} hash={el} />
-                ))}
-              </>
-            ) : (
-              <Typography variant="xs" weight={700} className="text-secondary">
-                {i18n._(t`Your transactions will appear here...`)}
-              </Typography>
-            )}
           </div>
         </HeadlessUiModal.BorderedContent>
       </div>

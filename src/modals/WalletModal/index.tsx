@@ -29,12 +29,10 @@ enum WALLET_VIEWS {
 }
 
 interface WalletModal {
-  pendingTransactions: string[] // hashes of pending
-  confirmedTransactions: string[] // hashes of confirmed
   ENSName?: string
 }
 
-const WalletModal: FC<WalletModal> = ({ pendingTransactions, confirmedTransactions, ENSName }) => {
+const WalletModal: FC<WalletModal> = ({ ENSName }) => {
   const { active, account, connector, activate, error, deactivate } = useWeb3React()
   const { i18n } = useLingui()
   const [walletView, setWalletView] = useState(WALLET_VIEWS.ACCOUNT)
@@ -257,13 +255,7 @@ const WalletModal: FC<WalletModal> = ({ pendingTransactions, confirmedTransactio
           </Button>
         </div>
       ) : account && walletView === WALLET_VIEWS.ACCOUNT ? (
-        <AccountDetails
-          toggleWalletModal={toggleWalletModal}
-          pendingTransactions={pendingTransactions}
-          confirmedTransactions={confirmedTransactions}
-          ENSName={ENSName}
-          openOptions={() => setWalletView(WALLET_VIEWS.OPTIONS)}
-        />
+        <AccountDetails toggleWalletModal={toggleWalletModal} ENSName={ENSName} />
       ) : (
         <div className="flex flex-col w-full space-y-4">
           <HeadlessUiModal.Header
