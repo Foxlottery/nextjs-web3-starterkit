@@ -26,7 +26,7 @@ function Web3StatusInner() {
         onClick={toggleWalletModal}
       >
         <div className="relative flex items-center gap-2 cursor-pointer pointer-events-auto">
-          <Typography weight={700} variant="sm" className="px-2 py-5 font-bold rounded-full text-inheri">
+          <Typography weight={700} variant="sm" className="px-2 py-5 font-semibold rounded-full text-inheri">
             {ENSName ? ENSName.toUpperCase() : shortenAddress(account)}
           </Typography>
 

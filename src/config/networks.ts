@@ -88,6 +88,7 @@ export const NETWORK_LABEL: Record<number, string> = {
 
 export const supportedNetworkChainIds = [
   ChainId.ETHEREUM,
+  ChainId.ROPSTEN,
   ChainId.MATIC,
   ChainId.ARBITRUM,
   ChainId.AVALANCHE,

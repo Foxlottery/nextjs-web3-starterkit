@@ -102,7 +102,7 @@ function Web3Network(): JSX.Element | null {
 
   return (
     <div
-      className="flex items-center text-sm font-bold cursor-pointer pointer-events-auto select-none whitespace-nowrap"
+      className="flex items-center text-sm font-semibold cursor-pointer pointer-events-auto select-none whitespace-nowrap"
       onClick={() => toggleNetworkModal()}
     >
       <div className="grid items-center grid-flow-col justify-center h-[36px] w-[36px] text-sm rounded pointer-events-auto auto-cols-max text-secondary">

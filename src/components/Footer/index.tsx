@@ -21,7 +21,7 @@ const Footer = () => {
             <Link href="/" passHref>
               <div className="flex items-center flex-shrink-0 cursor-pointer">
                 <div className="w-6 h-6" dangerouslySetInnerHTML={{ __html: serviceIcon }} />
-                <h2 className="pl-2 font-bold tracking-wide">{serviceName}</h2>
+                <h2 className="pl-2 font-semibold tracking-wide">{serviceName}</h2>
               </div>
             </Link>
             <p className="text-base text-gray-500">{footer.description}</p>

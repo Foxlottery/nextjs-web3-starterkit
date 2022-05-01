@@ -107,7 +107,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           // @ts-ignore TYPE NEEDS FIXING
           variant !== 'empty' ? DIMENSIONS[size] : '',
           fullWidth ? 'w-full' : '',
-          'font-bold flex items-center justify-center gap-1',
+          'font-semibold flex items-center justify-center gap-1',
           className
         )}
       >
