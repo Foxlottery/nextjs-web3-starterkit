@@ -1,6 +1,7 @@
 import Davatar from '@davatar/react'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
+import CurrentCryptoCurrencyAmount from 'app/components/CurrentCryptoCurrencyAmount'
 import { HeadlessUiModal } from 'app/components/Modal'
 import { injected, SUPPORTED_WALLETS } from 'app/config/wallets'
 import { getExplorerLink } from 'app/functions/explorer'
@@ -72,9 +73,10 @@ const AccountDetails: FC<AccountDetailsProps> = ({ toggleWalletModal, ENSName })
                   provider={library}
                 />
               </div>
-              <Typography weight={700} variant="lg" className="text-white">
+              <Typography weight={700} variant="sm" className="text-blank">
                 {ENSName ? ENSName : account && shortenAddress(account)}
               </Typography>
+              <CurrentCryptoCurrencyAmount />
             </div>
             <div className="flex items-center gap-2 space-x-3">
               {chainId && account && (

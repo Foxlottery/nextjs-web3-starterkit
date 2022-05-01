@@ -112,9 +112,9 @@ const HeadlessUiModalControlled: FC<ControlledModalProps> = ({
             as={Fragment}
             enter="ease-out duration-150"
             enterFrom="opacity-0"
-            enterTo="opacity-100"
+            enterTo="opacity-60"
             leave="ease-in duration-150"
-            leaveFrom="opacity-100"
+            leaveFrom="opacity-60"
             leaveTo="opacity-0"
           >
             <Dialog.Overlay className={classNames('fixed inset-0 filter bg-gray-500')} />

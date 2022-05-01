@@ -22,7 +22,7 @@ function Web3WalletStatusInner() {
     return (
       <div
         id="web3-status-connected"
-        className="flex items-center gap-2 ml-4 text-sm bg-gray-200 rounded-lg w-44 sm:w-28 text-primary sm:bg-white sm:ml-0"
+        className="flex items-center gap-2 ml-4 text-sm bg-gray-200 rounded-lg w-44 sm:w-28 text-primary sm:ml-0"
         onClick={toggleWalletModal}
       >
         <div className="relative flex items-center gap-2 cursor-pointer pointer-events-auto">
