@@ -10,7 +10,6 @@ import { BlockUpdater } from 'app/lib/hooks/useBlockNumber'
 import { MulticallUpdater } from 'app/lib/state/multicall'
 import store, { persistor } from 'app/state'
 import ApplicationUpdater from 'app/state/application/updater'
-import ListsUpdater from 'app/state/lists/updater'
 import LogsUpdater from 'app/state/logs/updater'
 import TransactionUpdater from 'app/state/transactions/updater'
 import UserUpdater from 'app/state/user/updater'
@@ -100,7 +99,6 @@ function MyApp({ Component, pageProps }: any) {
               <ReduxProvider store={store}>
                 <PersistGate persistor={persistor}>
                   <>
-                    <ListsUpdater />
                     <UserUpdater />
                     <ApplicationUpdater />
                     <TransactionUpdater />
