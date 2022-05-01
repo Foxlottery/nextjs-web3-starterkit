@@ -1,23 +1,13 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
-import { TokenList } from '@uniswap/token-lists'
 import { DEFAULT_TXN_DISMISS_MS } from 'app/constants'
 
-export type PopupContent =
-  | {
-      txn: {
-        hash: string
-        success?: boolean
-        summary?: string
-      }
-    }
-  | {
-      listUpdate: {
-        listUrl: string
-        oldList: TokenList
-        newList: TokenList
-        auto: boolean
-      }
-    }
+export type PopupContent = {
+  txn: {
+    hash: string
+    success?: boolean
+    summary?: string
+  }
+}
 
 export enum ApplicationModal {
   WALLET,
