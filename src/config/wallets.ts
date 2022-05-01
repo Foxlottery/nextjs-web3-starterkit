@@ -139,31 +139,4 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     color: '#4A6C9B',
     mobile: true,
   },
-  Binance: {
-    connector: async () => {
-      const BscConnector = (await import('@binance-chain/bsc-connector')).BscConnector
-      return new BscConnector({
-        supportedChainIds: [56],
-      })
-    },
-    name: 'Binance',
-    iconName: 'bsc.jpg',
-    description: 'Login using Binance hosted wallet',
-    href: null,
-    color: '#F0B90B',
-    mobile: true,
-  },
-  Clover: {
-    connector: async () => {
-      const CloverConnector = (await import('@clover-network/clover-connector')).CloverConnector
-      return new CloverConnector({
-        supportedChainIds: [1],
-      })
-    },
-    name: 'Clover',
-    iconName: 'clover.svg',
-    description: 'Login using Clover hosted wallet',
-    href: null,
-    color: '#269964',
-  },
 }
