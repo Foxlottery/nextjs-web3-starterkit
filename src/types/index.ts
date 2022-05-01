@@ -1,36 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { Currency, CurrencyAmount, Token, Trade as LegacyTrade, TradeType } from '@foxlottery/core-sdk'
-import { PoolState, Trade } from '@foxlottery/trident-sdk'
-
-export type TradeUnion =
-  | Trade<Currency, Currency, TradeType.EXACT_INPUT | TradeType.EXACT_OUTPUT>
-  | LegacyTrade<Currency, Currency, TradeType.EXACT_INPUT | TradeType.EXACT_OUTPUT>
-
-export type PoolWithStateExists<T> = {
-  state: PoolState.EXISTS
-  pool: T
-}
-
-export type PoolWithStateLoading = {
-  state: PoolState.LOADING
-  pool?: undefined
-}
-
-export type PoolWithStateNotExists = {
-  state: PoolState.NOT_EXISTS
-  pool?: undefined
-}
-
-export type PoolWithStateInvalid = {
-  state: PoolState.INVALID
-  pool?: undefined
-}
-
-export type PoolWithState<T> =
-  | PoolWithStateExists<T>
-  | PoolWithStateLoading
-  | PoolWithStateNotExists
-  | PoolWithStateInvalid
+import { CurrencyAmount, Token } from '@foxlottery/core-sdk'
 
 export type MethodArg = string | number | BigNumber
 export type MethodArgs = Array<MethodArg | MethodArg[]>
