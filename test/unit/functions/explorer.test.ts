@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/core-sdk'
+import { ChainId } from '@foxlottery/core-sdk'
 import { getExplorerLink } from 'app/functions/explorer'
 
 describe('utils', () => {

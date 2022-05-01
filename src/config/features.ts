@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/core-sdk'
+import { ChainId } from '@foxlottery/core-sdk'
 import { Feature } from 'app/enums'
 
 type FeatureMap = { readonly [chainId in ChainId]?: Feature[] }
