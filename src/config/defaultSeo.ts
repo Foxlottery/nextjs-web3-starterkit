@@ -1,10 +1,9 @@
-const SEO = {
+const defaultSeo = {
   defaultTitle: 'Foxlottery',
-  titleTemplate: '%s | Foxlottery',
   description: 'Blockchain lottery building service for municipalities.',
   openGraph: {
     type: 'website',
-    url: 'https://app.foxlottery.org',
+    url: `https://${process.env.DOMAIN}`,
     site_name: 'Foxlottery',
   },
   twitter: {
@@ -15,4 +14,4 @@ const SEO = {
   },
 }
 
-export default SEO
+export default defaultSeo

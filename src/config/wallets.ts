@@ -1,6 +1,5 @@
 import { ChainId } from '@foxlottery/core-sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
-import config from 'app/config'
 import { NetworkConnector } from 'app/entities/connectors'
 import Cookies from 'js-cookie'
 import { InjectedConnector } from 'web3-react-injected-connector'
@@ -62,7 +61,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     name: 'MetaMask',
     iconName: 'metamask.png',
     description: 'Open in MetaMask app.',
-    href: `https://metamask.app.link/dapp/${config.domain}`,
+    href: `https://metamask.app.link/dapp/${process.env.DOMAIN}`,
     color: '#E8831D',
     mobile: true,
     mobileOnly: true,

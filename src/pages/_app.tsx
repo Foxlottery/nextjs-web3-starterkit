@@ -23,7 +23,7 @@ import { Web3ReactProvider } from 'web3-react-core'
 
 const Web3ProviderNetwork = dynamic(() => import('../components/Web3ProviderNetwork'), { ssr: false })
 
-import SEO from '../config/seo'
+import defaultSeo from '../config/defaultSeo'
 
 if (typeof window !== 'undefined' && !!window.ethereum) {
   window.ethereum.autoRefreshOnNetworkChange = false
@@ -105,7 +105,7 @@ function MyApp({ Component, pageProps }: any) {
 
                   <Guard>
                     <Layout>
-                      <DefaultSeo {...SEO} />
+                      <DefaultSeo {...defaultSeo} />
                       <Component {...pageProps} />
                     </Layout>
                   </Guard>

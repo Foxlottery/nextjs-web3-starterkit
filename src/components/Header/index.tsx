@@ -7,7 +7,7 @@ import SwitchLanguages from 'app/components/SwitchLanguages'
 import Web3Network from 'app/components/Web3Network'
 import Web3WalletStatus from 'app/components/Web3WalletStatus'
 import config from 'app/config'
-import header from 'app/config/header'
+import headerConfig from 'app/config/header'
 import useIsCoinbaseWallet from 'app/hooks/useIsCoinbaseWallet'
 import { useActiveWeb3React } from 'app/services/web3'
 import { MenuItem } from 'app/types/MenuItem'
@@ -19,7 +19,7 @@ const Header = () => {
   const { serviceIcon, serviceName } = config
   const router = useRouter()
   const { i18n } = useLingui()
-  const headerConfig = header(i18n)
+  const header = headerConfig(i18n)
   const { library } = useActiveWeb3React()
   const isCoinbaseWallet = useIsCoinbaseWallet()
 
@@ -43,7 +43,7 @@ const Header = () => {
           </Popover.Button>
         </div>
         <Popover.Group as="nav" className="hidden space-x-10 md:flex">
-          {headerConfig.menuItems.map((menuItem: MenuItem) => {
+          {header.menuItems.map((menuItem: MenuItem) => {
             const isActive = menuItem.link == router.pathname
 
             if (menuItem.link) {
@@ -98,7 +98,7 @@ const Header = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid grid-cols-1">
-                  {headerConfig.menuItems.map((menuItem: MenuItem) => {
+                  {header.menuItems.map((menuItem: MenuItem) => {
                     const isActive = menuItem.link == router.pathname
                     if (menuItem.link) {
                       return (
