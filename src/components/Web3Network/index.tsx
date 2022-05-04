@@ -1,4 +1,3 @@
-import { ChainId } from '@foxlottery/core-sdk'
 import { NETWORK_ICON } from 'app/config/networks'
 import { switchToNetwork } from 'app/functions/network'
 import useIsWindowVisible from 'app/hooks/useIsWindowVisible'
@@ -89,12 +88,8 @@ function Web3Network(): JSX.Element | null {
   useEffect(() => {
     if (chainId && !queryChainId) {
       console.log({ router })
-      if (chainId === ChainId.MATIC && router.route === '/legacy/swap') {
-        router.replace({ pathname: '/trident/swap', query: { ...router.query, chainId } })
-      } else {
-        console.debug('Setting chain id on initial load because not present')
-        router.replace({ pathname: window.location.pathname, query: { ...router.query, chainId } })
-      }
+      console.debug('Setting chain id on initial load because not present')
+      router.replace({ pathname: window.location.pathname, query: { ...router.query, chainId } })
     }
   }, [chainId, queryChainId, router])
 

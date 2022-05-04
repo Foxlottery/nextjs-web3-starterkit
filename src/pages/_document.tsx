@@ -2,7 +2,7 @@
 // pages/_document.js
 import { Head, Html, Main, NextScript } from 'next/document'
 
-import SEO from '../config/seo'
+import defaultSeo from '../config/defaultSeo'
 
 export default function Document() {
   const { GOOGLE_TAG_MANAGER_ID } = process.env
@@ -10,11 +10,11 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <meta name="application-name" content={SEO.defaultTitle} />
+        <meta name="application-name" content={defaultSeo.defaultTitle} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content={SEO.defaultTitle} />
-        <meta name="description" content={SEO.description} />
+        <meta name="apple-mobile-web-app-title" content={defaultSeo.defaultTitle} />
+        <meta name="description" content={defaultSeo.description} />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="77C159" />
