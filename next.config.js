@@ -40,6 +40,7 @@ const nextConfig = {
   },
   env: {
     GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID,
+    DOMAIN: process.env.DOMAIN,
   },
 }
 
