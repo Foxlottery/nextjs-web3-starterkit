@@ -2,7 +2,7 @@ import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import SwitchLanguages from 'app/components/SwitchLanguages'
 import config from 'app/config'
-import translatedConfig from 'app/config/translatedConfig'
+import footerConfig from 'app/config/footer'
 import { IconLink } from 'app/types/IconLink'
 import { MenuItem } from 'app/types/MenuItem'
 import Link from 'next/link'
@@ -10,7 +10,7 @@ import React from 'react'
 
 const Footer = () => {
   const { i18n } = useLingui()
-  const { footer } = translatedConfig(i18n)
+  const footer = footerConfig(i18n)
   const { serviceIcon, serviceName } = config
 
   return (

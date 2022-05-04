@@ -2,11 +2,11 @@
   "About us": "",
   "Account": "",
   "Available Networks": "",
-  "Blockchain lottery building service for municipalities.": "",
   "Blog": "",
   "Connect to a wallet": "",
   "Copy Address": "",
   "Dashboard": "",
+  "Decentralized web3 lottery building service using blockchain-based crypto currency and smart contracts for municipalities.": "",
   "Developers": "",
   "Disconnect": "",
   "Docs": "",
@@ -20,9 +20,10 @@
   "Initializing": "",
   "Jobs": "",
   "Join Discord": "",
-  "LEGAL": "",
   "Language": "",
+  "Last 30 days": "",
   "Learn more about wallets": "",
+  "Legal": "",
   "Lottery": "",
   "New to Ethereum?": "",
   "Oops! An unknown error occurred. Please refresh the page, or visit from another browser or device": "",
@@ -38,5 +39,6 @@
   "Wrong Network": "",
   "You are on the wrong network": "",
   "home page": "",
-  "or change to an available network": ""
+  "or change to an available network": "",
+  "{title} | Foxlottery": ""
 }
