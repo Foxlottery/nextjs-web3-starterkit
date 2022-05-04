@@ -1,6 +1,7 @@
 const defaultSeo = {
   defaultTitle: 'Foxlottery',
-  description: 'Blockchain lottery building service for municipalities.',
+  description:
+    'Decentralized web3 lottery building service using blockchain-based crypto currency and smart contracts for municipalities.',
   openGraph: {
     type: 'website',
     url: `https://${process.env.DOMAIN}`,
