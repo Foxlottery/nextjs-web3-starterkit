@@ -1,7 +1,7 @@
 {
   "About us": "",
   "Account": "",
-  "Available Networks": "",
+  "Available Networks": "Available Networks",
   "Blog": "",
   "Connect to a wallet": "",
   "Copy Address": "",
@@ -16,10 +16,10 @@
   "Error connecting. Try refreshing the page.": "",
   "Error while trying to connect": "",
   "FETCHING": "",
-  "Github": "",
+  "Github": "Github",
   "Initializing": "",
   "Jobs": "",
-  "Join Discord": "",
+  "Join Discord": "Join Discord",
   "Language": "",
   "Last 30 days": "",
   "Learn more about wallets": "",
@@ -40,5 +40,5 @@
   "You are on the wrong network": "",
   "home page": "",
   "or change to an available network": "",
-  "{title} | Foxlottery": ""
+  "{title} | Foxlottery": "{title} | Foxlottery"
 }
