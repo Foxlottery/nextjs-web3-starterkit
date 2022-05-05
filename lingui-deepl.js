@@ -1,6 +1,7 @@
 const linguiConfig = require('./lingui.config.js')
 const { locales } = linguiConfig
 const translate = require('deepl')
+const fs = require('fs')
 
 const deeplLocales = [
   'BG',
@@ -37,9 +38,9 @@ function main() {
   const { DEEPL_AUTH_KEY } = process.env
   if (DEEPL_AUTH_KEY) {
     locales.forEach((locale) => {
-      const targetLocale = locale.toUpperCase()
-      if (deeplLocales.includes(targetLocale)) {
-        translateJson(targetLocale)
+      const convertedLocale = locale.toUpperCase().replace('_', '-')
+      if (deeplLocales.includes(convertedLocale)) {
+        translateJson(locale)
       }
     })
   } else {
