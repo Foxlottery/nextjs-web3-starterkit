@@ -5,7 +5,7 @@ import React, { FC } from 'react'
 
 const SwitchLanguages: FC = () => {
   const { locale, locales, asPath, push } = useRouter()
-  const LOCALE_KEY_VALUES: Record<string, string> = config.lingui.localeKeyValues
+  const LOCALE_KEY_VALUES: Record<string, string> = config.lingui.displayNames
 
   const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e: any) => {
     push(asPath, undefined, { locale: e.target.value })
